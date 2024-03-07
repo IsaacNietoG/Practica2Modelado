@@ -1,7 +1,16 @@
-package com.rateroscoloniatesocongo.restauranteBotSim.menu;
+package com.rateroscoloniatesocongo.restauranteBotSim.menues;
+
+import com.rateroscoloniatesocongo.restauranteBotSim.hamburguesas.HamburguesaReceta;
 
 /**
+ *  La clase que guarda la informacion de un item en un menu
  *
+ *  Para este proyecto, nosotros debemos de realizar una emulacion de un restaurante de hamburguesas, por lo que,
+ *  para este caso concreto, nuestra clase MenuItem nos guardará toda la información necesaria sobre cada uno de las
+ *  hamburguesas.
+ *
+ *  Esto abarca tanto informacion de display como la información que necesita nuestro Robot para realizar la hamburguesa, es
+ *  decir, la receta de la hamburguesa.
  *  */
 public class MenuItem{
 
@@ -11,8 +20,16 @@ public class MenuItem{
     double precio;
     boolean tieneQueso;
     boolean esVegetariano;
-    HamburguesaRecipe
+    HamburguesaReceta receta;
 
+    public MenuItem(int id, String nombre, String descripcion, double precio, boolean tieneQueso,
+                    boolean esVegetariano, HamburguesaReceta receta){
+        setId(id);
+        setNombre(nombre);
+        setDescripcion(descripcion);
+        setPrecio(precio);
+        //....
+    }
     public int getId(){
         return id;
     }
@@ -58,6 +75,10 @@ public class MenuItem{
     }
 
     public void setEsVegetariano(boolean esVegetariano){
+
+    }
+
+    public void setReceta (HamburguesaReceta receta){
 
     }
 }

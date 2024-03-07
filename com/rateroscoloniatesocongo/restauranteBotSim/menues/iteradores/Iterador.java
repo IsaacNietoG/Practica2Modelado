@@ -1,6 +1,7 @@
 package com.rateroscoloniatesocongo.restauranteBotSim.menues.iteradores;
 
 import com.rateroscoloniatesocongo.restauranteBotSim.menues.MenuItem;
+import java.util.Iterator;
 
 /**
  *  La interface que deben implementar los iteradores de nuestro programa
@@ -8,8 +9,11 @@ import com.rateroscoloniatesocongo.restauranteBotSim.menues.MenuItem;
  *  Segun el patron de diseño Iterator, estos nos deben de proporcionar metodos
  *  next() y hasNext() para poder iterar sobre nuestras estructuras de datos.
  *  En esta implementacion concreta, estas estructuras de datos serán los menús.
+ *
+ *  Para motivos de una correcta adhesion a ciertas estructuras nativas de java (for-each por ejemplo)
+ *  esta interface implementa Iterator de java.util
  *  */
-public interface Iterador{
+public interface Iterador implements Iterator{
 
     /**
      *  El metodo que nos permite movernos a través de la estructura de datos donde implementemos nuestro iterador.
