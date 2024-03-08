@@ -1,4 +1,4 @@
-package com.rateroscoloniatesocongo.restauranteBotSim.menues;
+package com.rateroscoloniatesocongo.restauranteBotSim.menus;
 
 import com.rateroscoloniatesocongo.restauranteBotSim.hamburguesas.HamburguesaReceta;
 
@@ -24,61 +24,65 @@ public class MenuItem{
 
     public MenuItem(int id, String nombre, String descripcion, double precio, boolean tieneQueso,
                     boolean esVegetariano, HamburguesaReceta receta){
-        setId(id);
-        setNombre(nombre);
-        setDescripcion(descripcion);
-        setPrecio(precio);
-        //....
+
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.tieneQueso = tieneQueso;
+        this.esVegetariano = esVegetariano;
+        this.receta = receta;
+        
     }
     public int getId(){
         return id;
     }
 
     public String getNombre(){
-
+        return nombre;
     }
 
     public String getDescripcion(){
-
+        return descripcion;
     }
 
     public double getPrecio(){
-
+        return precio;
     }
 
     public boolean tieneQueso(){
-
+        return tieneQueso;
     }
 
     public boolean esVegetariano(){
-
+        return esVegetariano;
     }
 
     public void setId(int id){
-
+        this.id = id;
     }
 
     public void setNombre(String nombre){
-
+        this.nombre = nombre;
     }
 
     public void setDescripcion(String descripcion){
-
+        this.descripcion = descripcion;
     }
 
     public void setPrecio(double precio){
-
+        this.precio = precio;
     }
 
     public void setTieneQueso(boolean tieneQueso){
-
+        this.tieneQueso = tieneQueso;
     }
 
     public void setEsVegetariano(boolean esVegetariano){
-
+        this.esVegetariano = esVegetariano;
     }
 
-    public void setReceta (HamburguesaReceta receta){
-
+    public void setReceta(HamburguesaReceta receta){
+        this.receta = receta;
     }
 }

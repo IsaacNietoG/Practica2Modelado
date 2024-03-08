@@ -1,15 +1,15 @@
-package com.rateroscoloniatesocongo.restauranteBotSim.menues.iteradores;
+package com.rateroscoloniatesocongo.restauranteBotSim.menus.iteradores;
 
-import com.rateroscoloniatesocongo.restauranteBotSim.menues.MenuItem;
+import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
 import java.util.ArrayList;
-
+import java.util.Iterator;
 
 /**
- * Iterador para el menu de cada dia de nuestro programa
+ * Iterador para el menu de cada día de nuestro programa
  *
  * Este iterador está diseñado para funcionar sobre {@link ArrayList}
  * */
-public class MenuCadaDiaIterator implements Iterador{
+public class MenuCadaDiaIterator implements Iterator<MenuItem> {
 
     private ArrayList<MenuItem> items;
     private int posicion;
@@ -34,7 +34,7 @@ public class MenuCadaDiaIterator implements Iterador{
      *  @return el booleano que nos responde dicha pregunta
      *  */
     public boolean hasNext(){
-        return (this.items.size()>posicion);
+        return this.items.size() > posicion;
     }
 
     /**
@@ -44,8 +44,6 @@ public class MenuCadaDiaIterator implements Iterador{
      *  @return el item del nodo que avanzó durante el paso.
      *  */
     public MenuItem next(){
-        MenuItem retorno = items.get(posicion);
-        posicion++;
-        return retorno;
+        return items.get(posicion++);
     }
 }
