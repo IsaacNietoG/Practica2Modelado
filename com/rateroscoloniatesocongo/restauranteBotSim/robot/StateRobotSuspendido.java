@@ -3,6 +3,7 @@ package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 import com.rateroscoloniatesocongo.restauranteBotSim.menues.MenuItem;
 
 public class StateRobotSuspendido implements StateRobot{
+
     StateRobot robot;
 
     /**
@@ -64,4 +65,5 @@ public class StateRobotSuspendido implements StateRobot{
         // TODO Auto-generated method stub
 
     }
+
 }

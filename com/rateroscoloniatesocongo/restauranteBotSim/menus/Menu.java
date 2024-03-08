@@ -1,6 +1,6 @@
-package com.rateroscoloniatesocongo.restauranteBotSim.menues;
+package com.rateroscoloniatesocongo.restauranteBotSim.menus;
 
-import com.rateroscoloniatesocongo.restauranteBotSim.menues.iteradores.Iterador;
+import java.util.Iterator;
 
 /**
  *  La interface que nos especifica que metodos debe llevar un menu.
@@ -12,7 +12,7 @@ import com.rateroscoloniatesocongo.restauranteBotSim.menues.iteradores.Iterador;
  *  En cierta manera, esta interface asemeja un poco a la interface {@link Iterable} de Java
  *  en el sentido de que obliga a que todos nuestros menues deban proporcionarnos un iterador.
  *  */
-public interface Menu{
+public interface Menu {
 
     /**
      *  Creamos un iterador para nuestro menu
@@ -22,7 +22,7 @@ public interface Menu{
      *  @return un Iterador con el cual podremos iterar sobre nuestra estructura iterable
      *          (Canek eres tu?)
      *  */
-    public Iterador crearIterador();
+    public Iterator<MenuItem> crearIterador();
 
     /**
      *  Para buscar dentro de nuestro menu un item con una id especifica, retornaremos dicha referencia al usuario.
