@@ -2,8 +2,19 @@ package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 
 import com.rateroscoloniatesocongo.restauranteBotSim.menues.MenuItem;
 
+/**
+ *  Clase de estado para el robot: Cocinando
+ *
+ *  En este estado, el robot ya ha levantado la orden y tiene pendiente
+ *  cocinarla, por lo que en este estado solamente puede cocinar la orden que
+ *  tiene pendiente.
+ *  */
 public class StateRobotCocinando implements StateRobot{
     StateRobot robot;
+
+    public StateRobotCocinando(StateRobot robot){
+        this.robot = robot;
+    }
 
     /**
      *  Implementacion concreta de suspender para este {@link StateRobot}

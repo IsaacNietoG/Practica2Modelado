@@ -3,25 +3,25 @@ package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
 
 /**
- *  Clase de estado para el robot: Caminando
+ *  Clase de estado para el robot: Atendiendo.
  *
- *  En este estado, el robot ha sido activado por la presencia de un cliente
- *  y está caminando hacia atenderlo.
+ *  En este estado, el robot ha caminado hacia su cliente y está esperando
+ *  a levantar la orden para después comenzar a cocinarla.
+ *  No puede hacer otra cosa que no sea tomar la orden del usuario.
  *  */
-public class StateRobotCaminando implements StateRobot{
+public class StateRobotAtendiendo implements StateRobot{
 
     StateRobot robot;
 
-    public StateRobotCaminando(StateRobot robot){
+    public StateRobotAtendiendo(StateRobot robot){
         this.robot = robot;
     }
 
     /**
      *  Implementacion concreta de suspender para este {@link StateRobot}
      *
-     *  Si el robot se encuentra caminando y no encontró el cliente hacia
-     *  el que estaba caminando, puede regresar a suspenderse. vease
-     *  {@link StateRobotSuspendido}
+     *  Bajo este estado no puede suspenderse, pues está atendiendo a un
+     *  cliente.
      *  */
     @Override
     public void suspender() {
@@ -32,8 +32,8 @@ public class StateRobotCaminando implements StateRobot{
     /**
      *  Implementacion concreta de activar para este {@link StateRobot}
      *
-     *  En este estado el robot tecnicamente ya se encuentra activo, por lo que
-     *  no puede volver a activarse esta orden.
+     *  Bajo este estado tecnicamente ya se encuentra activo, asi que no puede
+     *  volver a dar esta accion.
      *  */
     @Override
     public void activar() {
@@ -44,8 +44,11 @@ public class StateRobotCaminando implements StateRobot{
     /**
      *  Implementacion concreta de tomarOrden para este {@link StateRobot}
      *
-     *  En este estado todavía no llega hacia su cliente, por lo que
-     *  todavia no puede tomar la orden.
+     *  Este es el estado adecuado en el que se puede tomar la orden del cliente,
+     *  por lo que aqui debe ser implementado dicho comportamiento.
+     *
+     *  Ademas, una vez tomada la orden se procede a cambiar de estado a
+     *  vease {@link StateRobotCocinando}
      *  */
     @Override
     public void tomarOrden() {
@@ -56,8 +59,8 @@ public class StateRobotCaminando implements StateRobot{
     /**
      *  Implementacion concreta de cocinar para este {@link StateRobot}
      *
-     *  En este estado no puede cocinar porque no tiene todavia ninguna orden
-     *  lista para comenzar a ser cocinada.
+     *  En este estado todavia no recibe la orden del cliente, por lo que
+     *  todavia no puede cocinar nada. vease {@link StateRobotCocinando}
      *  */
     @Override
     public void cocinar(MenuItem hamburguesa) {
@@ -68,9 +71,9 @@ public class StateRobotCaminando implements StateRobot{
     /**
      *  Implementacion concreta de interactuarCliente para este {@link StateRobot}
      *
-     *  En este estado se dice que esta accion se activa cuando encuentra el cliente
-     *  hacia el que estaba caminando, en este caso cambia su estado a atenderlo.
-     *  Vease {@link StateRobotAtendiendo}
+     *  En este estado la unica interaccion valida que se puede dar entre el
+     *  robot y el cliente es vease tomarOrden. Por lo que esta opcion no estará
+     *  implementada.
      *  */
     @Override
     public void interactuarCliente() {
