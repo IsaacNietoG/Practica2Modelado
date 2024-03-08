@@ -2,9 +2,20 @@ package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 
 import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
 
+/**
+ *  Clase de estado para el robot: Atendiendo.
+ *
+ *  En este estado, el robot ha caminado hacia su cliente y está esperando
+ *  a levantar la orden para después comenzar a cocinarla.
+ *  No puede hacer otra cosa que no sea tomar la orden del usuario.
+ *  */
 public class StateRobotAtendiendo implements StateRobot{
 
     StateRobot robot;
+
+    public StateRobotAtendiendo(StateRobot robot){
+        this.robot = robot;
+    }
 
     /**
      *  Implementacion concreta de suspender para este {@link StateRobot}

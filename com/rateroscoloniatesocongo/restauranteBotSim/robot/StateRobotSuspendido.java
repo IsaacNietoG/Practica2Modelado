@@ -2,9 +2,20 @@ package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 
 import com.rateroscoloniatesocongo.restauranteBotSim.menues.MenuItem;
 
+/**
+ *  Clase de estado para el robot: Suspendido
+ *
+ *  En este estado, el robot se encuentra en un modo de ahorro de energía
+ *  esperando a que se le vuelva a activar. Una vez se vuelva a activar,
+ *  volverá a caminar en busca de un cliente.
+ *  */
 public class StateRobotSuspendido implements StateRobot{
 
     StateRobot robot;
+
+    public StateRobotSuspendido(StateRobot robot){
+        this.robot = robot;
+    }
 
     /**
      *  Implementacion concreta de suspender para este {@link StateRobot}

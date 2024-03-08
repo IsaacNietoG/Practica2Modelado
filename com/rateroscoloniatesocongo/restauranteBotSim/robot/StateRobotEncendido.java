@@ -2,8 +2,24 @@ package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 
 import com.rateroscoloniatesocongo.restauranteBotSim.menues.MenuItem;
 
+/**
+ *  Clase de estado para robot: Encendido
+ *
+ *  En este estado, el robot ha sido encendido pero todavia no se encuentra
+ *  activo por algun cliente, es un estado intermedio entre que el robot
+ *  se ha encendido/salido de la suspension y es activado por la presencia
+ *  de un nuevo cliente para caminar a atenderlo.
+ *
+ *  Este es el estado "base" del robot y en este inicia el flujo de cambio
+ *  de estados del mismo.
+ *  */
 public class StateRobotEncendido implements StateRobot{
     StateRobot robot;
+
+    public StateRobotEncendido(StateRobot robot){
+        this.robot = robot;
+    }
+
 
     /**
      *  Implementacion concreta de suspender para {@link StateRobot}

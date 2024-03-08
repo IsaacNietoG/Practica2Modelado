@@ -2,10 +2,19 @@ package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 
 import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
 
-/**  */
+/**
+ *  Clase de estado para el robot: Entregado
+ *
+ *  En este estado, se dice que el robot tiene pendiente por entregar
+ *  un pedido que ya está cocinado y listo para entregarse al cliente final.
+ *  */
 public class StateRobotEntregado implements StateRobot{
 
     StateRobot robot;
+
+    public StateRobotEntregado(StateRobot robot){
+        this.robot = robot;
+    }
 
     /**
      *  Implementacion concreta de suspender para este {@link StateRobot}
