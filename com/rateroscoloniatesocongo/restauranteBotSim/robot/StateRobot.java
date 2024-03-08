@@ -17,5 +17,6 @@ public interface StateRobot{
     public void activar();
     public void tomarOrden();
     public void cocinar(MenuItem hamburguesa);
+    public void interactuarCliente();
 
 }

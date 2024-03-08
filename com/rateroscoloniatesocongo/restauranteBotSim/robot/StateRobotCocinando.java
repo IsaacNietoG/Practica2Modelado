@@ -2,13 +2,14 @@ package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 
 import com.rateroscoloniatesocongo.restauranteBotSim.menues.MenuItem;
 
-public class StateRobotSuspendido implements StateRobot{
+public class StateRobotCocinando implements StateRobot{
     StateRobot robot;
 
     /**
      *  Implementacion concreta de suspender para este {@link StateRobot}
      *
-     *  En este estado el robot ya está suspendido entonces teoricamente no debería de hacer nada.
+     *  No esta permitida esta operacion en este estado, por lo que deberia de
+     *  estar prohibida.
      *  */
     @Override
     public void suspender() {
@@ -19,7 +20,7 @@ public class StateRobotSuspendido implements StateRobot{
     /**
      *  Implementacion concreta de activar para este {@link StateRobot}
      *
-     *  Cambia el estado del robot a StateRobotActivado
+     *  No esta permitida esta operacion, pues tecnicamente ya está activado.
      *  */
     @Override
     public void activar() {
@@ -27,24 +28,23 @@ public class StateRobotSuspendido implements StateRobot{
 
     }
 
+
     /**
      *  Implementacion concreta de tomarOrden para este {@link StateRobot}
      *
-     *  Debe de rechazar esta accion, ya que un robot en este estado no puede
-     *  tomar ordenes.
+     *  No esta permitida esta operacion, pues no puede tomar ordenes mientras cocina
      *  */
-
     @Override
     public void tomarOrden() {
         // TODO Auto-generated method stub
 
     }
 
-
     /**
      *  Implementacion concreta de cocinar para este {@link StateRobot}
      *
-     *  Debe de rechazar esta accion, ya que un robot en este estado no puede tomar ordenes.
+     *  En esta operacion se realiza el cambio de estado, pues el robot cocina la receta recibida y es
+     *  entonces cuando pasa al estado de entregarle la hamburguesa al cliente. (es StateRobotEntregado)
      *  */
     @Override
     public void cocinar(MenuItem hamburguesa) {
@@ -52,16 +52,15 @@ public class StateRobotSuspendido implements StateRobot{
 
     }
 
-
     /**
      *  Implementacion concreta de interactuarCliente para este {@link StateRobot}
      *
-     *  Supuestamente un robot suspendido no deberia de poder ¨interactuar" con un cliente, pero
-     *  la propuesta del documentador para este metodo es que lo active y lo haga tal vez caminar hacia el cliente?
+     *  Esta operacion no se puede realizar en este estado pues no se puede interactuar con el cliente mientras está cocinando.
      *  */
     @Override
     public void interactuarCliente() {
         // TODO Auto-generated method stub
 
     }
+
 }
