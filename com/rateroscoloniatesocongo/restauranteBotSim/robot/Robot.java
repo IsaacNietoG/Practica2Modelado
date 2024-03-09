@@ -1,5 +1,6 @@
 package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 
+import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuGlobal;
 import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
 
 /**
@@ -24,31 +25,28 @@ public class Robot implements StateRobot{
 
     @Override
     public void suspender() {
-        // TODO Auto-generated method stub
-
+        estado.suspender();
     }
 
     @Override
     public void activar() {
-        // TODO Auto-generated method stub
-
+        estado.activar();
     }
 
     @Override
-    public void tomarOrden() {
-        // TODO Auto-generated method stub
-
+    public void tomarOrden(MenuGlobal menuGlobal) {
+        estado.tomarOrden(menuGlobal);
     }
 
     @Override
     public void cocinar(MenuItem hamburguesa) {
-        // TODO Auto-generated method stub
+        estado.cocinar(hamburguesa);
 
     }
 
     @Override
     public void interactuarCliente() {
-        // TODO Auto-generated method stub
+        estado.interactuarCliente();
 
     }
 

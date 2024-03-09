@@ -1,6 +1,7 @@
 package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 
-import com.rateroscoloniatesocongo.restauranteBotSim.menues.MenuItem;
+import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuGlobal;
+import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
 
 /**
  *  Clase de estado para robot: Encendido
@@ -14,9 +15,9 @@ import com.rateroscoloniatesocongo.restauranteBotSim.menues.MenuItem;
  *  de estados del mismo.
  *  */
 public class StateRobotEncendido implements StateRobot{
-    StateRobot robot;
+    Robot robot;
 
-    public StateRobotEncendido(StateRobot robot){
+    public StateRobotEncendido(Robot robot){
         this.robot = robot;
     }
 
@@ -30,7 +31,7 @@ public class StateRobotEncendido implements StateRobot{
      *  */
     @Override
     public void suspender() {
-        // TODO Auto-generated method stub
+        System.out.println("No puede suspenderse el robot en estos momentos");
 
     }
 
@@ -42,7 +43,9 @@ public class StateRobotEncendido implements StateRobot{
      *  */
     @Override
     public void activar() {
-        // TODO Auto-generated method stub
+        System.out.println("Se ha activado el robot, ahora está caminando al cliente.");
+        this.robot.estado = new StateRobotCaminando(robot);
+
 
     }
 
@@ -55,8 +58,8 @@ public class StateRobotEncendido implements StateRobot{
      *  vease StateRobotAtendiendo
      *  */
     @Override
-    public void tomarOrden() {
-        // TODO Auto-generated method stub
+    public void tomarOrden(MenuGlobal menuGlobal) {
+        System.out.println("El robot no puede tomar orden pues no ha llegado a ningun cliente");
 
     }
 
@@ -68,7 +71,7 @@ public class StateRobotEncendido implements StateRobot{
      *  */
     @Override
     public void cocinar(MenuItem hamburguesa) {
-        // TODO Auto-generated method stub
+        System.out.println("El robot no puede cocinar pues no ha recibido ninguna orden");
 
     }
 
@@ -80,7 +83,7 @@ public class StateRobotEncendido implements StateRobot{
      *  */
     @Override
     public void interactuarCliente() {
-        // TODO Auto-generated method stub
+        System.out.println("El robot no puede interactuar con un cliente pues no ha llegado con ninguno");
 
     }
 }

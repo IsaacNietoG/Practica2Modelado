@@ -1,6 +1,7 @@
 package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 
-import com.rateroscoloniatesocongo.restauranteBotSim.menues.MenuItem;
+import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
+import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuGlobal;
 
 /**
  *  Clase de estado para el robot: Suspendido
@@ -11,9 +12,9 @@ import com.rateroscoloniatesocongo.restauranteBotSim.menues.MenuItem;
  *  */
 public class StateRobotSuspendido implements StateRobot{
 
-    StateRobot robot;
+    Robot robot;
 
-    public StateRobotSuspendido(StateRobot robot){
+    public StateRobotSuspendido(Robot robot){
         this.robot = robot;
     }
 
@@ -24,19 +25,19 @@ public class StateRobotSuspendido implements StateRobot{
      *  */
     @Override
     public void suspender() {
-        // TODO Auto-generated method stub
+        System.out.println("El robot ya se encuentra suspendido.");
 
     }
 
     /**
      *  Implementacion concreta de activar para este {@link StateRobot}
      *
-     *  Cambia el estado del robot a StateRobotActivado
+     *  Cambia el estado del robot a StateRobotEncendido
      *  */
     @Override
     public void activar() {
-        // TODO Auto-generated method stub
-
+        System.out.println("El robot sale de su estado de suspension. Ahora está encendido");
+        this.robot.estado = new StateRobotEncendido(robot);
     }
 
     /**
@@ -47,8 +48,8 @@ public class StateRobotSuspendido implements StateRobot{
      *  */
 
     @Override
-    public void tomarOrden() {
-        // TODO Auto-generated method stub
+    public void tomarOrden(MenuGlobal menuGlobal) {
+        System.out.println("El robot no puede tomar la orden, pues está suspendido");
 
     }
 
@@ -60,7 +61,7 @@ public class StateRobotSuspendido implements StateRobot{
      *  */
     @Override
     public void cocinar(MenuItem hamburguesa) {
-        // TODO Auto-generated method stub
+        System.out.println("El robot no puede cocinar pues se encuentra suspendido.");
 
     }
 
@@ -73,7 +74,7 @@ public class StateRobotSuspendido implements StateRobot{
      *  */
     @Override
     public void interactuarCliente() {
-        // TODO Auto-generated method stub
+        System.out.println("El robot no puede interactuar con clientes, pues se encuentra suspendido");
 
     }
 

@@ -1,5 +1,6 @@
 package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 
+import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuGlobal;
 import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
 
 /**
@@ -10,10 +11,10 @@ import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
  *  */
 public class StateRobotCaminando implements StateRobot{
 
-    StateRobot robot;
+    Robot robot;
 
     public StateRobotCaminando(StateRobot robot){
-        this.robot = robot;
+        this.robot = (Robot)robot;
     }
 
     /**
@@ -25,8 +26,8 @@ public class StateRobotCaminando implements StateRobot{
      *  */
     @Override
     public void suspender() {
-        // TODO Auto-generated method stub
 
+        System.out.println("El robot se encuentra caminando, no se puede suspender en estos momentos");
     }
 
     /**
@@ -37,8 +38,7 @@ public class StateRobotCaminando implements StateRobot{
      *  */
     @Override
     public void activar() {
-        // TODO Auto-generated method stub
-
+        System.out.println("El robot ya se encuentra activo, de hecho está caminando");
     }
 
     /**
@@ -48,8 +48,8 @@ public class StateRobotCaminando implements StateRobot{
      *  todavia no puede tomar la orden.
      *  */
     @Override
-    public void tomarOrden() {
-        // TODO Auto-generated method stub
+    public void tomarOrden(MenuGlobal menuGlobal) {
+        System.out.println("El robot no ha llegado a un cliente, no puede tomar la orden");
 
     }
 
@@ -61,7 +61,7 @@ public class StateRobotCaminando implements StateRobot{
      *  */
     @Override
     public void cocinar(MenuItem hamburguesa) {
-        // TODO Auto-generated method stub
+        System.out.println("El robot no puede cocinar en estos momentos");
 
     }
 
@@ -74,8 +74,8 @@ public class StateRobotCaminando implements StateRobot{
      *  */
     @Override
     public void interactuarCliente() {
-        // TODO Auto-generated method stub
-
+        System.out.println("Buenas tardes, bienvenido a McBurguesas, puedo tomar su pedido");
+        this.robot.estado = new StateRobotAtendiendo(this.robot);
     }
 
 }
