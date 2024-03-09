@@ -9,27 +9,41 @@ import java.util.ArrayList;
  *  es una {@link ArrayList}
  *  */
 public class MenuCadaDia implements Menu{
-    ArrayList<MenuItem> items;
+    private ArrayList<MenuItem> items;
 
-    public MenuCadaDia(ArrayList<MenuItem> items){
-        this.items = items;
-    }
+  public MenuCadaDia(){
+     this.items = new ArrayList<MenuItem>(); 
+  }
 
-    @Override
-    public Iterador crearIterador() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+  public void agregarItem(int id,String nombrePlatillo,String descripcion,double precioPlatillo,boolean tieneQueso,boolean esVegetariana){
+    MenuItem menu = new MenuItem(id,nombrePlatillo,descripcion,precioPlatillo,tieneQueso,esVegetariana);
+    this.items.add(menu);
+  }
 
-    @Override
-    public MenuItem buscarMenuId(int id) {
-        // TODO Auto-generated method stub
-        return null;
+    /**
+     *@Override
+     */
+  public Iterator crearIterador(){
+    return new MenuCadaDiaIterator(this.items); 
+  }
+  /**
+   *@return m
+   *@return null
+   *@Override
+   */
+  public MenuItem buscarMenuId(int id){
+    for(MenuItem m:this.items){
+      if(m.obtenerId() == id){
+        return m;
+      }
     }
-
-    @Override
-    public String obtenerNombreMenu() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    return null;
+  }/**
+    *@Override
+    *@return Menu de cada dia
+    */
+  
+  public String obtenerNombreMenu(){
+    return "Menu de cada dia";
+  }
 }

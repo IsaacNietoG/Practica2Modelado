@@ -10,28 +10,38 @@ import java.util.Hashtable;
  *  */
 public class MenuEspecial implements Menu{
 
-    Hashtable<Integer, MenuItem> items;
+    private Hashtable<Integer,MenuItem> items;
 
-    public MenuEspecial(Hashtable<Integer, MenuItem> items){
-        this.items = items;
-    }
+   public MenuEspecial(){
+   	 this.items = new Hashtable<Integer,MenuItem>();
+   }
 
-    @Override
-    public Iterador crearIterador() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+   public void agregarItem(int id,String nombrePlatillo,String descripcion,double precioPlatillo,boolean tieneQueso,boolean esVegetariana){
+   	 MenuItem menu = new MenuItem(id,nombrePlatillo,descripcion,precioPlatillo,tieneQueso,esVegetariana);
+   	 this.items.put(id,menu);
+   }
 
-    @Override
-    public MenuItem buscarMenuId(int id) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    /**
+     *@Override
+     *@return MenuEspecialIterator(this.items);
+     */
+   public Iterator crearIterador(){
+   	 return new MenuEspecialIterator(this.items);
+   }
+    /**
+     *@Override
+     *@return this.items.get(id);
+     */
+   public MenuItem buscarMenuId(int id){
+      return this.items.get(id);
+   }
+    /**
+     *@Override
+     *@return Menu especial
+     */
+   public String obtenerNombreMenu(){
+    return "Menu especial";
+   }  
 
-    @Override
-    public String obtenerNombreMenu() {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
 }
