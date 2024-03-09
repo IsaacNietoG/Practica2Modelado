@@ -1,6 +1,8 @@
 package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 
-import com.rateroscoloniatesocongo.restauranteBotSim.menues.MenuItem;
+import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
+import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuGlobal;
+
 
 /**
  *  Clase de estado para el robot: Cocinando
@@ -46,7 +48,7 @@ public class StateRobotCocinando implements StateRobot{
      *  No esta permitida esta operacion, pues no puede tomar ordenes mientras cocina
      *  */
     @Override
-    public void tomarOrden() {
+    public void tomarOrden(MenuGlobal menuGlobal) {
         // TODO Auto-generated method stub
 
     }

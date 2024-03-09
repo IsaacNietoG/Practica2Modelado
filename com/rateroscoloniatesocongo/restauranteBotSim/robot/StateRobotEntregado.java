@@ -1,5 +1,6 @@
 package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 
+import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuGlobal;
 import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
 
 /**
@@ -48,7 +49,7 @@ public class StateRobotEntregado implements StateRobot{
      *  no puede tomar una orden hasta entregar la pendiente.
      *  */
     @Override
-    public void tomarOrden() {
+    public void tomarOrden(MenuGlobal menuGlobal) {
         // TODO Auto-generated method stub
 
     }

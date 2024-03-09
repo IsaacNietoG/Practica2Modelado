@@ -1,6 +1,7 @@
 package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 
 import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
+import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuGlobal;
 
 /**
  *  La interface que nos da los comportamientos que debe tener el robot y sus estados
@@ -15,7 +16,7 @@ public interface StateRobot{
 
     public void suspender();
     public void activar();
-    public void tomarOrden();
+    public void tomarOrden(MenuGlobal menuGlobal);
     public void cocinar(MenuItem hamburguesa);
     public void interactuarCliente();
 

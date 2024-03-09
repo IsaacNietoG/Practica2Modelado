@@ -1,5 +1,6 @@
 package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 
+import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuGlobal;
 import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
 
 /**
@@ -11,9 +12,9 @@ import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
  *  */
 public class StateRobotAtendiendo implements StateRobot{
 
-    StateRobot robot;
+    Robot robot;
 
-    public StateRobotAtendiendo(StateRobot robot){
+    public StateRobotAtendiendo(Robot robot){
         this.robot = robot;
     }
 
@@ -25,7 +26,7 @@ public class StateRobotAtendiendo implements StateRobot{
      *  */
     @Override
     public void suspender() {
-        // TODO Auto-generated method stub
+        System.out.println("No puede suspenderse el robot mientras está atendiendo");
 
     }
 
@@ -37,7 +38,7 @@ public class StateRobotAtendiendo implements StateRobot{
      *  */
     @Override
     public void activar() {
-        // TODO Auto-generated method stub
+        System.out.println("El robot ya se encuentra activo, de hecho está atendiendo");
 
     }
 
@@ -50,9 +51,9 @@ public class StateRobotAtendiendo implements StateRobot{
      *  Ademas, una vez tomada la orden se procede a cambiar de estado a
      *  vease {@link StateRobotCocinando}
      *  */
-    @Override
-    public void tomarOrden() {
-        // TODO Auto-generated method stub
+    public void tomarOrden(MenuGlobal menuGlobal) {
+        System.out.println("Aqui está el menú, digame que va a llevar");
+        System.out.println(menuGlobal);
 
     }
 
