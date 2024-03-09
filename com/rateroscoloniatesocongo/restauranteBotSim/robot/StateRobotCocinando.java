@@ -1,6 +1,7 @@
 package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 
 import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
+import com.rateroscoloniatesocongo.restauranteBotSim.hamburguesas.HamburguesaReceta;
 import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuGlobal;
 
 
@@ -12,10 +13,12 @@ import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuGlobal;
  *  tiene pendiente.
  *  */
 public class StateRobotCocinando implements StateRobot{
-    StateRobot robot;
+    Robot robot;
+    MenuItem pedido;
 
-    public StateRobotCocinando(StateRobot robot){
+    public StateRobotCocinando(Robot robot, MenuItem pedido){
         this.robot = robot;
+        this.pedido = pedido;
     }
 
     /**
@@ -26,7 +29,7 @@ public class StateRobotCocinando implements StateRobot{
      *  */
     @Override
     public void suspender() {
-        // TODO Auto-generated method stub
+        System.out.println("No puede suspenderse en este momento, el robot tiene una orden pendiente");
 
     }
 
@@ -37,7 +40,7 @@ public class StateRobotCocinando implements StateRobot{
      *  */
     @Override
     public void activar() {
-        // TODO Auto-generated method stub
+        System.out.println("El robot ya se encuentra activo, de hecho, ya tiene una orden pendiente");
 
     }
 
@@ -49,7 +52,7 @@ public class StateRobotCocinando implements StateRobot{
      *  */
     @Override
     public void tomarOrden(MenuGlobal menuGlobal) {
-        // TODO Auto-generated method stub
+        System.out.println("El robot ya tomó una orden, no puede tomar otra.");
 
     }
 
@@ -60,8 +63,13 @@ public class StateRobotCocinando implements StateRobot{
      *  entonces cuando pasa al estado de entregarle la hamburguesa al cliente. (es StateRobotEntregado)
      *  */
     @Override
-    public void cocinar(MenuItem hamburguesa) {
-        // TODO Auto-generated method stub
+    public void cocinar(MenuItem hamburguesa){
+        System.out.println("Cocinando el pedido...");
+        System.out.println("Hamburguesa encargada... " + hamburguesa.getNombre());
+        HamburguesaReceta proceso = hamburguesa.getReceta();
+        proceso.prepararHamburguesa();
+        System.out.println("Hamburguesa lista para servirse");
+        robot.estado = new StateRobotEntregado(robot);
 
     }
 
@@ -72,7 +80,7 @@ public class StateRobotCocinando implements StateRobot{
      *  */
     @Override
     public void interactuarCliente() {
-        // TODO Auto-generated method stub
+        System.out.println("El robot no puede interactuar con el cliente, tiene una orden pendiente.");
 
     }
 

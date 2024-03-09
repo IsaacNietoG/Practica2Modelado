@@ -13,7 +13,7 @@ public class MenuGlobal{
 
     Menu[] menus;
     ArrayList<MenuItem> menuFinal;
-    MenuGlobal instance;
+    String menuFinalString;
 
     /**
      *  El constructor de la clase MenuGlobal
@@ -33,13 +33,18 @@ public class MenuGlobal{
      *  manera puede recabar los items nuevamente.
      *  */
     public void refrescarContenido(){
+        String menuString = "---- Menu de McBurguesas ---- \n";
         ArrayList<MenuItem> menuPreparado = new ArrayList<>();
         for(Menu menu : menus){
+            menuString += menu.obtenerNombreMenu()+ "\n";
             Iterator<MenuItem> iterador = menu.crearIterador();
             while(iterador.hasNext()){
-                menuPreparado.add(iterador.next());
+                MenuItem item = iterador.next();
+                menuString += item + "\n";
+                menuPreparado.add(item);
             }
         }
+        menuFinalString = menuString;
         menuFinal = menuPreparado;
     }
 
@@ -49,12 +54,14 @@ public class MenuGlobal{
     @Override
     public String toString(){
         refrescarContenido();
-        String string = "";
-        for(MenuItem item : menuFinal){
-            string += item;
-            string += "\n";
-        }
-        return string;
+        return menuFinalString;
     }
 
+    public MenuItem buscarItem(int id){
+        for(MenuItem item : menuFinal){
+            if(item.getId() == id)
+                return item;
+        }
+        return null;
+    }
 }

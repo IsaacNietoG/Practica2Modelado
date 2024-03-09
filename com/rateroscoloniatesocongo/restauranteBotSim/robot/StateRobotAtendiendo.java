@@ -1,5 +1,7 @@
 package com.rateroscoloniatesocongo.restauranteBotSim.robot;
 
+import java.util.Scanner;
+
 import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuGlobal;
 import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
 
@@ -54,6 +56,22 @@ public class StateRobotAtendiendo implements StateRobot{
     public void tomarOrden(MenuGlobal menuGlobal) {
         System.out.println("Aqui está el menú, digame que va a llevar");
         System.out.println(menuGlobal);
+        Scanner input = new Scanner(System.in);
+        int opcion = -1;
+        try{
+            opcion = Integer.parseInt(input.nextLine());
+        }catch (NumberFormatException e){
+            System.out.println("Opcion invalida.");
+            return;
+        }
+        MenuItem eleccion = menuGlobal.buscarItem(opcion);
+        if(eleccion == null){
+            System.out.println("Opcion invalida.");
+            return;
+        }
+
+        System.out.println("Orden recibida correctamente, listo para cocinar.");
+        robot.estado = new StateRobotCocinando(robot, eleccion);
 
     }
 
@@ -65,7 +83,7 @@ public class StateRobotAtendiendo implements StateRobot{
      *  */
     @Override
     public void cocinar(MenuItem hamburguesa) {
-        // TODO Auto-generated method stub
+        System.out.println("El robot no puede cocinar todavia, no tiene pedido todavia");
 
     }
 
@@ -78,7 +96,7 @@ public class StateRobotAtendiendo implements StateRobot{
      *  */
     @Override
     public void interactuarCliente() {
-        // TODO Auto-generated method stub
+        System.out.println("El robot esta atendiendo a alguien, asi que su interaccion es pedirle la orden");
 
     }
 

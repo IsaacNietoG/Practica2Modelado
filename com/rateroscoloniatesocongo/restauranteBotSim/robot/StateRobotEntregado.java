@@ -11,9 +11,9 @@ import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
  *  */
 public class StateRobotEntregado implements StateRobot{
 
-    StateRobot robot;
+    Robot robot;
 
-    public StateRobotEntregado(StateRobot robot){
+    public StateRobotEntregado(Robot robot){
         this.robot = robot;
     }
 
@@ -26,7 +26,7 @@ public class StateRobotEntregado implements StateRobot{
      *  */
     @Override
     public void suspender() {
-        // TODO Auto-generated method stub
+        System.out.println("El robot tiene una hamburguesa en mano, no puede suspenderse.");
 
     }
 
@@ -38,7 +38,7 @@ public class StateRobotEntregado implements StateRobot{
      *  */
     @Override
     public void activar() {
-        // TODO Auto-generated method stub
+        System.out.println("El robot ya se encuentra activado, de hecho tiene una hamburguesa en mano");
 
     }
 
@@ -50,7 +50,7 @@ public class StateRobotEntregado implements StateRobot{
      *  */
     @Override
     public void tomarOrden(MenuGlobal menuGlobal) {
-        // TODO Auto-generated method stub
+        System.out.println("El robot ya tiene una hamburguesa en mano, no puede tomar otra orden");
 
     }
 
@@ -62,7 +62,7 @@ public class StateRobotEntregado implements StateRobot{
      *  */
     @Override
     public void cocinar(MenuItem hamburguesa) {
-        // TODO Auto-generated method stub
+        System.out.println("El robot no puede cocinar una hamburguesa pues ya tiene una pendiente de entregar");
 
     }
 
@@ -75,7 +75,7 @@ public class StateRobotEntregado implements StateRobot{
      *  */
     @Override
     public void interactuarCliente() {
-        // TODO Auto-generated method stub
-
+        System.out.println("Hamburguesa entregada al cliente, regresando a suspension");
+        robot.estado = new StateRobotSuspendido(robot);
     }
 }
