@@ -4,29 +4,40 @@ import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
 
 import java.util.Iterator;
 
-/private MenuItem[] items;
-	private int posicion = 0;
+/**
+ *  El iterador diseñado para el Menu Diario.
+ *
+ *  Ya que el menu diario se guarda en un {@link java.lang.reflect.Array}, este iterador
+ *  está diseñado para recorrer dicha estructura de datos.
+ *  */
+public class MenuDiarioIterator implements Iterator<MenuItem> {
 
-	public MenuDiarioIterator(MenuItem[] items){
-      this.items = items;
-	}
+    private MenuItem[] items;
+    int posicion;
 
     /**
-     *@Override
-     *@return la iteracion del menu
-     */
-	public MenuItem next(){
-      MenuItem menuItem = this.items[posicion];
-      this.posicion = this.posicion+1;
-      return menuItem;
-	}
+     *  El constructor de nuestras instancias de esta clase
+     *
+     *  @param items    el arreglo sobre el que queremos iterar.
+     *  */
+    public MenuDiarioIterator(MenuItem[] items) {
+        this.items = items;
+        posicion = 0;
+    }
+
     /**
-     *@Override
-     *@return si la posicion no es mayor a la long del item y la posicion del item no es null 
-     */
-	public boolean hasNext(){
-      return !(posicion >= items.length) && !(items[posicion] == null);
-	}
+     *  Consultar documentacion de {@link com.rateroscoloniatesocongo.restauranteBotSim.menus.iteradores.Iterador}
+     *  */
+    @Override
+    public boolean hasNext() {
+        return items.length > posicion;
+    }
 
-
+    /**
+     *  Consultar documentacion de {@link com.rateroscoloniatesocongo.restauranteBotSim.menus.iteradores.Iterador}
+     *  */
+    @Override
+    public MenuItem next() {
+        return items[posicion++];
+    }
 }

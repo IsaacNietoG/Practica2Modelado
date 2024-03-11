@@ -9,22 +9,6 @@ import java.util.Iterator;
  *
  * Este iterador está diseñado para funcionar sobre {@link ArrayList}
  * */
-public class MenuCadaDiaIterator implements Iterator{
-	private ArrayList<MenuItem> items;
-	private int posicion = 0;
-
-	public MenuCadaDiaIterator(ArrayList<MenuItem> items){
-	  this.items = items;
-	}
-
-    /**
-     *@Override
-     *@return el menu iterado
-     *//**
- * Iterador para el menu de cada día de nuestro programa
- *
- * Este iterador está diseñado para funcionar sobre {@link ArrayList}
- * */
 public class MenuCadaDiaIterator implements Iterator<MenuItem> {
 
     private ArrayList<MenuItem> items;
@@ -62,20 +46,4 @@ public class MenuCadaDiaIterator implements Iterator<MenuItem> {
     public MenuItem next(){
         return items.get(posicion++);
     }
-}
-
-	public MenuItem next(){
-	  MenuItem menuItem = items.get(this.posicion);
-	  this.posicion = this.posicion+1;
-	  return menuItem;	
-	}
-
-    /**
-     *@Override
-     *@return una condicional para hasNext, para el tamano
-     */
-	public boolean hasNext(){
-	  return !(posicion >= items.size());	
-	}
-
 }
