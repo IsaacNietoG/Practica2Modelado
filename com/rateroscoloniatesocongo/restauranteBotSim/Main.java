@@ -140,7 +140,10 @@ public class Main{
     return menuCompleto;
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   
+=======
+>>>>>>> parent of 86e6c5d (Main)
 =======
 >>>>>>> parent of 86e6c5d (Main)
 
