@@ -10,42 +10,77 @@ package com.rateroscoloniatesocongo.restauranteBotSim.hamburguesas;
  *  Esta clase abstracta posee dos métodos hooks que son los que implementaremos en cada receta
  *  de hamburguesa según sus particularidades.
  *  */
-public abstract class HamburguesaReceta {
+public abstract class HamburguesaReceta{
+    protected String hamburguesaPreparada;
+    protected boolean queso = true;
+    protected String prepararCarne = "";
 
+    public void prepararHamburguesa(){
+       ponerPan();
+       ponerMayonesa();
+       ponerMostaza();
+       prepararCarne();
+       ponerCarne();
+       if(llevaQueso()){
+       	  ponerQueso();
+       }
+       ponerVegetales();
+       ponerCatsup();
+       ponerPan();
+    }
     /**
-     *  El método que concentra todos los pasos necesarios para preparar una hamburguesa.
-     * <p>
-     *  Siguiendo el patron Template, este es el método que concentra todos nuestros métodos en el resultado
-     *  final. Específicamente para este caso, reúne todos los pasos generalizados de preparar una hamburguesa
-     *
-     *  @return **** E banda, no sé como vamos a implementar esto pero me hace ruido este return, según yo si algo
-     *  aquí debe retornar algo debería ser este método.
-     *  */
-    public void prepararHamburguesa() {
-        ponerPan();
-        ponerAderezo();
-        prepararCarne();
-        ponerCarne();
-        ponerQueso();
-        ponerVegetales();
+     *@return hamburgesaPreparada
+     */
+    public String obtenerHamburguesa(){
+       return this.hamburguesaPreparada;
+    }
+    /**
+     *@return prepararCarne
+     */
+    public String obtenerCoccionCarne(){
+       return this.prepararCarne;
+    }
+ 
+    public void ponerPan(){
+      String pan = "🍞";
+      this.hamburguesaPreparada += pan;      
     }
 
-    protected void ponerPan() {
-        System.out.println("Pan colocado");
+    public void ponerMayonesa(){
+      String mayonesa = "⚪";
+      this.hamburguesaPreparada += mayonesa;	
     }
 
-    protected void ponerAderezo() {
-        System.out.println("Aderezos colocados");
+    public void ponerMostaza(){
+      String mostaza = "🟡";
+      this.hamburguesaPreparada += mostaza; 	
     }
 
-    abstract protected void prepararCarne();
-
-    protected void ponerCarne() {
-        System.out.println("Carne colocada");
+    public void ponerVegetales(){
+      String vegetales = "🍅" + "🥬";
+      this.hamburguesaPreparada += vegetales;
     }
-    abstract protected void ponerQueso();
 
-    protected void ponerVegetales() {
-        System.out.println("Poner vegetales");
+    public void ponerCatsup(){
+      String catsup = "🔴";
+      this.hamburguesaPreparada += catsup;	
     }
+
+    public void ponerQueso(){
+      String queso = "🧀";
+      this.hamburguesaPreparada += queso;
+    }
+
+    public boolean llevaQueso(){
+      return  this.queso;
+    }
+    
+    public void asignarQueso(boolean queso){
+      this.queso = queso;
+    }
+    
+    
+    public abstract void prepararCarne();
+    public abstract void ponerCarne();
+
 }
