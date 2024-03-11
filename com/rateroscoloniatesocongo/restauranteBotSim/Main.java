@@ -141,7 +141,10 @@ public class Main{
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   
+=======
+>>>>>>> parent of 86e6c5d (Main)
 =======
 >>>>>>> parent of 86e6c5d (Main)
 =======
