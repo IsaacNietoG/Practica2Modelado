@@ -1,9 +1,6 @@
 package.com.rateroscoloniatesocongo.restauranteBotSim.hamburguesas;
 public class HamburguesaNormal extends Hamburguesa{
 
-   public HamburguesaNormal(){
-	 this.hamburguesaPreparada = "";
-   }
     /**
      *@Override
      */
@@ -18,7 +15,6 @@ public class HamburguesaNormal extends Hamburguesa{
      *@Override
      */
    public void ponerCarne(){
-   	 String carne = "🥩";
-   	 this.hamburguesaPreparada += carne  + "\n";
+       System.out.println("Agrego carne")
    }
 }

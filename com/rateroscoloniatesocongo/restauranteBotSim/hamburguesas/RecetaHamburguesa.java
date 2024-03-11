@@ -10,24 +10,29 @@ package com.rateroscoloniatesocongo.restauranteBotSim.hamburguesas;
  *  Esta clase abstracta posee dos métodos hooks que son los que implementaremos en cada receta
  *  de hamburguesa según sus particularidades.
  *  */
-public abstract class HamburguesaReceta {
+public abstract class RecetaHamburguesa {
 
     /**
      *  El método que concentra todos los pasos necesarios para preparar una hamburguesa.
      * <p>
      *  Siguiendo el patron Template, este es el método que concentra todos nuestros métodos en el resultado
      *  final. Específicamente para este caso, reúne todos los pasos generalizados de preparar una hamburguesa
-     *
-     *  @return **** E banda, no sé como vamos a implementar esto pero me hace ruido este return, según yo si algo
-     *  aquí debe retornar algo debería ser este método.
      *  */
-    public void prepararHamburguesa() {
+    public void prepararHamburguesa() throws InterruptedException{
+        System.out.println("Comenzando preparacion.");
+        Thread.sleep(100);
         ponerPan();
+        Thread.sleep(100);
         ponerAderezo();
+        Thread.sleep(100);
         prepararCarne();
+        Thread.sleep(100);
         ponerCarne();
+        Thread.sleep(100);
         ponerQueso();
+        Thread.sleep(100);
         ponerVegetales();
+        System.out.println("Hamburguesa lista.");
     }
 
     protected void ponerPan() {
