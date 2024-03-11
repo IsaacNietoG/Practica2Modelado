@@ -21,52 +21,54 @@ public class MenuItem{
     boolean tieneQueso;
     boolean esVegetariano;
     HamburguesaReceta receta;
+    
+    public MenuItem(int id, String nombre, String descripcion, double precio, boolean tieneQueso,
+                    boolean esVegetariano, HamburguesaReceta receta){
 
-<<<<<<< HEAD:com/rateroscoloniatesocongo/restauranteBotSim/menues/MenuItem.java
-    public MenuItem(int id,String nombrePlatillo,String descripcion,double precioPlatillo,boolean tieneQueso,boolean esVegetariana){
-      this.id = id;
-      this.nombre = nombre;
-      this.descripcion = descripcion;
-      this.precio = precio;
-      this.tieneQueso = tieneQueso;
-      this.esVegetariano =  esVegetariano;
-      
-	}
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.tieneQueso = tieneQueso;
+        this.esVegetariano = esVegetariano;
+        this.receta = receta;
+        
+    }
     /**
      *@return nombrePlatillo
      */
-	public String obtenerNombre(){
-	  return this.nombre;
+	public String getNombre(){
+	  return nombre;
 	}
     /**
      *@return descripcion
      */
-	public String obtenerDescripcion(){
-	  return this.descripcion;	
+	public String getDescripcion(){
+	  return descripcion;	
 	}
     /**
      *@return el precio del platillo
      */
-	public double obtenerPrecio(){
-	  return this.precio;	
+	public double getPrecio(){
+	  return precio;	
 	}
     /**
-     *@return esVegetariana
+     *@return esVegetariano
      */
 	public boolean esVegetariano(){
-	  return this.esVegetariano;
+	  return esVegetariano;
 	}
     /**
      *@return tieneQueso
      */
 	public boolean tieneQueso(){
-	  return this.tieneQueso;	
+	  return tieneQueso;	
 	}
     /**
      *@return id
      */
-	public int obtenerId(){
-	  return this.id;
+	public int getId(){
+	  return id;
 	}
     /**
      *@Override
@@ -85,73 +87,8 @@ public class MenuItem{
 	  }else{
 	  	vegetariano = "no";
 	  }
-	  return "Nombre: " + this.nombre + "\n" + "id: " + String.valueOf(this.id) + "\n" + "descripcion: " + this.descripcion + "\n" + "precio: " + String.valueOf(this.precio) 
-	  + "\n" + "vegetariana: " + vegetariano + "\n" + "tiene queso: " + queso;
+	  return "Nombre: " + nombre + "\n" + "id: " + String.valueOf(id) + "\n" + "descripcion: " + descripcion + "\n" + "precio: " + String.valueOf(precio) 
+	  + "\n" + "vegetariano: " + vegetariano + "\n" + "tiene queso: " + queso;
 	}
 
-=======
-    public MenuItem(int id, String nombre, String descripcion, double precio, boolean tieneQueso,
-                    boolean esVegetariano, HamburguesaReceta receta){
-
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.tieneQueso = tieneQueso;
-        this.esVegetariano = esVegetariano;
-        this.receta = receta;
-        
-    }
-    public int getId(){
-        return id;
-    }
-
-    public String getNombre(){
-        return nombre;
-    }
-
-    public String getDescripcion(){
-        return descripcion;
-    }
-
-    public double getPrecio(){
-        return precio;
-    }
-
-    public boolean tieneQueso(){
-        return tieneQueso;
-    }
-
-    public boolean esVegetariano(){
-        return esVegetariano;
-    }
-
-    public void setId(int id){
-        this.id = id;
-    }
-
-    public void setNombre(String nombre){
-        this.nombre = nombre;
-    }
-
-    public void setDescripcion(String descripcion){
-        this.descripcion = descripcion;
-    }
-
-    public void setPrecio(double precio){
-        this.precio = precio;
-    }
-
-    public void setTieneQueso(boolean tieneQueso){
-        this.tieneQueso = tieneQueso;
-    }
-
-    public void setEsVegetariano(boolean esVegetariano){
-        this.esVegetariano = esVegetariano;
-    }
-
-    public void setReceta(HamburguesaReceta receta){
-        this.receta = receta;
-    }
->>>>>>> c75b547630dcaf8961e4466d743fdfde1dde70b1:com/rateroscoloniatesocongo/restauranteBotSim/menus/MenuItem.java
 }
