@@ -1,6 +1,6 @@
 package com.rateroscoloniatesocongo.restauranteBotSim.hamburguesas;
 
-public class RecetaHamburguesaVegana {
+public class RecetaHamburguesaVegana extends RecetaHamburguesa{
 
 	@Override
 	public void prepararCarne() {
@@ -8,7 +8,7 @@ public class RecetaHamburguesaVegana {
 	}
 
 	@Override
-	public void poniendoQueso() {
+	public void ponerQueso() {
 		System.out.println("Poniendo tofu");
 	}
 }

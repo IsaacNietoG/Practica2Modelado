@@ -1,6 +1,6 @@
 package com.rateroscoloniatesocongo.restauranteBotSim.hamburguesas;
 
-public class RecetaHamburguesaTripleAmericana {
+public class RecetaHamburguesaTripleAmericana extends RecetaHamburguesa{
 
 	@Override
 	public void prepararCarne() {
