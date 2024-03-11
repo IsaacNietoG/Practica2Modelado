@@ -49,6 +49,29 @@ public class Robot implements StateRobot{
         estado.interactuarCliente();
 
     }
-
-
+    /**
+     *realiza la accion de ordenar.
+     * @param id - el id del platillo.
+     * @param menuCompleto - un arreglo del tipo menu.
+     * @throws AlertaRobot :se presentara cuando ocurra un accion invalida para el robot.
+     */    
+    public void tomarOrden(int id,Menu[] menuCompleto)throws AlertaRobot{
+        this.estadoRobot.tomarOrden(id,menuCompleto);	
+     }
+     /**
+      *@return estado del robor (cocinar)
+      * @throws AlertaRobot :se presentara cuando ocurra un accion invalida para el robot.
+      */
+     public String cocinar()throws AlertaRobot{
+        return this.estadoRobot.cocinar();
+     }
+     /**
+      *@return estado del robor (entregar)
+      * @throws AlertaRobot :se presentara cuando ocurra un accion invalida para el robot.
+      */
+     public String entregar()throws AlertaRobot{
+        return this.estadoRobot.entregar();	
+     }
+ }
+ 
 }
