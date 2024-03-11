@@ -15,39 +15,134 @@ import com.rateroscoloniatesocongo.restauranteBotSim.menus.MenuItem;
  *
  *  Empieza en su estado inicial que es encendido.
  *  */
-public class Robot implements StateRobot{
+package com.rateroscoloniatesocongo.robot.*;
+import  com.rateroscoloniatesocongo.menus;
+import  com.rateroscoloniatesocongo.menus.Iteradores.*;
+public class Robot{
+	private Estado StateRobotEncendido;
+	private Estado StateRobotSuspendido;
+	private Estado StateRobotCaminando;
+	private Estado StateRobotAtendiendo;
+	private Estado StateRobotCocinando;
+   private Estado StateRobotEntregando;
+   private MenuItem platilloAcocinar; 
+   private Estado estadoRobot;
 
-    StateRobot estado;
-
+    /**
+     * Metodo constructor de un robot, que no recibe argumentos.
+     */ 
     public Robot(){
-        this.estado = new StateRobotEncendido(this);
+       this.StateRobotEncendido = new StateRobotEncendido(this);
+       this.StateRobotSuspendido = new StateRobotSuspendido(this);
+       this.StateRobotCaminando = new StateRobotCaminando(this);
+       this.StateRobotAtendiendo = new StateRobotAtendiendo(this);
+       this.StateRobotcocinando = new StateRobotcocinando(this);
+       this.StateRobotEntregando = new StateRobotEntregando(this);
+
+       this.estadoRobot = StateRobotEncendido;
     }
 
-    @Override
-    public void suspender() {
-        estado.suspender();
+
+    /**Entregando
+     * Metodo asignarEstado modifica el estado del robot.
+     * @param estadoRobot - tipo Estado. 
+     */
+    public void asignarEstado(Estado estadoRobot){
+       this.estadoRobot = estadoRobot;
     }
 
-    @Override
-    public void activar() {
-        estado.activar();
+    /**
+     * Metodo asignarPlaticoAcocinar asignar el platillo que va a cocinar el robot.
+     * @param platilloAcocinar - tipo MenuItem. 
+     */
+    public void asignarPlaticoAcocinar(MenuItem platilloAcocinar){
+       this.platilloAcocinar = platilloAcocinar;
+    }
+    
+    /**
+     * Metodo obtenerEstadoActual obtiene el estado actual del robot.
+     * @return Estado.
+     */
+    public Estado obtenerEstadoActual(){
+      return this.estadoRobot;
     }
 
-    @Override
-    public void tomarOrden(MenuGlobal menuGlobal) {
-        estado.tomarOrden(menuGlobal);
+    /**
+     * Metodo obtenerEstadoSuspendido obtiene el eEntregandostado supendido del robot.
+     * @return Estado.StateRobotEncendido
+     */    
+    public Estado obtenerEstadoSuspendido(){
+       return this.StateRobotSuspendido;
     }
 
-    @Override
-    public void cocinar(MenuItem hamburguesa) {
-        estado.cocinar(hamburguesa);
-
+    /**
+     * Metodo obtenerEstadoEncendido obtiene el estado encendido del robot.
+     * @return Estado.
+     */    
+    public Estado obtenerEstadoEncendido(){
+       return this.StateRobotEncendido;
+    }
+    /**
+     * Metodo obtenerEstadoCaminado obtiene el estado caminando del robot.
+     * @return Estado.
+     */
+    public Estado obtenerEstadoCaminando(){
+       return this.StateRobotCaminando;
+    }
+    /**
+     * Metodo obtenerEstadoAtendiendo obtiene el estado Atendiendo del robot.
+     * @return Estado.
+     */
+    public Estado obtenerEstadoAtendiendo(){
+       return this.StateRobotAtendiendo;
+    }
+    /**
+     * Metodo obtenerEstadoCocinando obtiene el estado concinando del robot.
+     * @return Estado.
+     */
+    public Estado obtenerEstadoCocinando(){
+       return this.StateRobotcocinando;	
+    }
+    /**
+     * Metodo obtenerEstadoEntregando obtiene el estado entregado del robot.
+     * @return Estado.
+     */
+    public Estado obtenerEstadoEntregando(){
+       return this.StateRobotEntregando;
+    }
+    /**
+     * Metodo obtenerEstadoPlatilloAcocinar obtiene el estado del platillo a cocinar del robot.
+     * @return Estado.
+     */
+    public MenuItem obtenerPlatilloAcocinar(){
+       return this.platilloAcocinar;
     }
 
-    @Override
-    public void interactuarCliente() {
-        estado.interactuarCliente();
 
+
+    public void activar()throws AlertaRobot{
+       this.estadoRobot.activar();	
+    }
+    /**
+     *@return estado del robor (encender)
+     *@throws AlertaRobot :se presentara cuando ocurra un accion invalida para el robot. 
+     */
+    public String StateRobotEncendido()throws AlertaRobot{
+      return this.estadoRobot.StateRobotEncendido();
+    }
+    /**
+     *@return estado del robor (suspender)
+     *@throws AlertaRobot :se presentara cuando ocurra un accion invalida para el robot.
+     */
+    public String StateRobotSuspendido()throws AlertaRobot{
+       return this.estadoRobot.StateRobotSuspendido();
+    }
+    /**
+     *@return estado del robor (distancia al caminar)
+     * @throws AlertaRobot :se presentara cuando ocurra un accion invalida para el robot.
+     */
+    public String StateRobotCaminando(int distancia)throws AlertaRobot{
+       return this.estadoRobot.StateRobotCaminando(distancia);	
     }
     /**
      *realiza la accion de ordenar.
@@ -56,22 +151,20 @@ public class Robot implements StateRobot{
      * @throws AlertaRobot :se presentara cuando ocurra un accion invalida para el robot.
      */    
     public void tomarOrden(int id,Menu[] menuCompleto)throws AlertaRobot{
-        this.estadoRobot.tomarOrden(id,menuCompleto);	
-     }
-     /**
-      *@return estado del robor (cocinar)
-      * @throws AlertaRobot :se presentara cuando ocurra un accion invalida para el robot.
-      */
-     public String cocinar()throws AlertaRobot{
-        return this.estadoRobot.cocinar();
-     }
-     /**
-      *@return estado del robor (entregar)
-      * @throws AlertaRobot :se presentara cuando ocurra un accion invalida para el robot.
-      */
-     public String entregar()throws AlertaRobot{
-        return this.estadoRobot.entregar();	
-     }
- }
- 
+       this.estadoRobot.tomarOrden(id,menuCompleto);	
+    }
+    /**
+     *@return estado del robor (cocinar)
+     * @throws AlertaRobot :se presentara cuando ocurra un accion invalida para el robot.
+     */
+    public String StateRobotcocinando()throws AlertaRobot{
+       return this.estadoRobot.StateRobotcocinando();
+    }
+    /**
+     *@return estado del robor (entregar)
+     * @throws AlertaRobot :se presentara cuando ocurra un accion invalida para el robot.
+     */
+    public String StateRobotEntregando()throws AlertaRobot{
+       return this.estadoRobot.StateRobotEntregando();	
+    }
 }

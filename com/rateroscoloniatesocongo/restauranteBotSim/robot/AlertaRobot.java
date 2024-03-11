@@ -2,7 +2,7 @@
  * AlertaRobot es una exception, representa cualquier error que pueda tener nuestro robot.
  */
 
-package com.practica2.demo.robot;
+package com.rateroscoloniatesocongo.robot;
 
 public class AlertaRobot extends Exception{
    public AlertaRobot(){
