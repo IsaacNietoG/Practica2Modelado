@@ -49,7 +49,7 @@ public class Robot implements StateRobot{
         estado.interactuarCliente();
 
     }
- /**
+    /**
      *realiza la accion de ordenar.
      * @param id - el id del platillo.
      * @param menuCompleto - un arreglo del tipo menu.
