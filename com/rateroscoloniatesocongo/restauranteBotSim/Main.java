@@ -139,7 +139,10 @@ public class Main{
 
     return menuCompleto;
   }
+<<<<<<< HEAD
   
+=======
+>>>>>>> parent of 86e6c5d (Main)
 
 
 
